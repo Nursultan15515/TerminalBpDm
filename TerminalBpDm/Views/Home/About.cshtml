@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<button class="btn btn-primary" id="sendRequest">
+    send request
+</button>
+
+<script>
+    const sendRequestBtn = document.querySelector('#sendRequest');
+
+    sendRequestBtn.addEventListener('click', e => {
+        $.ajax({
+            url: 'http://localhost:8080/issue-card/',
+            method: 'POST',
+            success: function (data) {
+                console.log("RFID UID:", data.uid);
+                console.log("Data:", data);
+                alert("Карта выдана. UID: " + data.uid);
+            },
+            error: function (xhr) {
+                console.error("Ошибка:", xhr.responseText);
+                alert("Ошибка выдачи карты!");
+            }
+        });
+    });
+</script>

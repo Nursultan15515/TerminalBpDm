@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Manual Input";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Manual Input</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        #inputWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #inputField {
+            font-size: 24px;
+            padding: 10px;
+            width: 700px;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #backspaceButton {
+            margin-left: 10px;
+            padding: 10px 16px;
+            font-size: 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .keyboard-wrapper {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        .keyboard-row {
+            display: flex;
+            justify-content: center;
+            margin: 5px 0;
+        }
+
+        .keyboard-button {
+            padding: 15px 20px;
+            margin: 5px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            min-width: 60px;
+            text-align: center;
+        }
+
+            .keyboard-button.space {
+                min-width: 300px;
+            }
+
+            .keyboard-button.wide {
+                min-width: 130px;
+            }
+
+            .keyboard-button.small-text {
+                font-size: 14px;
+            }
+    </style>
+</head>
+<body>
+    <div style="margin-top: 200px; text-align: center;">
+        <div id="inputWrapper">
+            <input type="text" id="inputField" readonly />
+            <button id="backspaceButton" onclick="handleBackspace()">⌫</button>
+        </div>
+
+        <div class="keyboard-wrapper" id="keyboardContainer"></div>
+
+        <div style="margin-top: 20px;">
+            <button onclick="alert('Search pressed')" style="padding: 12px 30px; font-size: 18px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                🔍 Search
+            </button>
+        </div>
+
+        <div style="position: absolute; bottom: 20px; left: 20px;">
+            <button onclick="window.location.href='@Url.Action("Index", "Home")'" style="padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                ⬅ Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let isLetters = false;
+        const inputField = document.getElementById("inputField");
+        const keyboardContainer = document.getElementById("keyboardContainer");
+
+        const numberLayout = [
+            ["1", "2", "3"],
+            ["4", "5", "6"],
+            ["7", "8", "9"],
+            ["ABC", "0"]
+        ];
+
+        const letterLayout = [
+            ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+            ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+            ["Z", "X", "C", "V", "B", "N", "M"],
+            ["123", "space"]
+        ];
+
+        function handleBackspace() {
+            inputField.value = inputField.value.slice(0, -1);
+        }
+
+        function renderKeyboard() {
+            keyboardContainer.innerHTML = "";
+            const layout = isLetters ? letterLayout : numberLayout;
+            layout.forEach(row => {
+                const rowDiv = document.createElement("div");
+                rowDiv.className = "keyboard-row";
+                row.forEach(key => {
+                    const button = document.createElement("button");
+                    button.className = "keyboard-button";
+
+                    if (key === "space") {
+                        button.classList.add("space");
+                        button.innerHTML = "␣";
+                        button.onclick = () => inputField.value += " ";
+                    } else if (key === "0") {
+                        button.classList.add("wide");
+                        button.innerHTML = "0";
+                        button.onclick = () => inputField.value += "0";
+                    } else if (key === "ABC" || key === "123") {
+                        button.classList.add("small-text");
+                        button.innerHTML = key;
+                        button.onclick = () => {
+                            isLetters = !isLetters;
+                            renderKeyboard();
+                        };
+                    } else {
+                        button.innerHTML = key;
+                        button.onclick = () => inputField.value += key;
+                    }
+
+                    rowDiv.appendChild(button);
+                });
+                keyboardContainer.appendChild(rowDiv);
+            });
+        }
+
+        renderKeyboard();
+    </script>
+</body>
+</html>
