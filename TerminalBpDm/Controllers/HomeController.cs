@@ -55,5 +55,14 @@ namespace TerminalBpDm.Controllers
 
             return View();
         }
+
+        public ActionResult SetLanguage(string lang)
+        {
+            HttpCookie langCookie = new HttpCookie("lang", lang);
+            langCookie.Expires = DateTime.Now.AddYears(2);
+            Response.Cookies.Add(langCookie);
+
+            return Redirect(Request.UrlReferrer.ToString());
+        }
     }
 }

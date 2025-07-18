@@ -31,6 +31,9 @@
         @RenderBody()
         <hr />
         <footer>
+            <a href="@Url.Action("SetLanguage", "Home", new { lang = "en" })">English</a>
+            |
+            <a href="@Url.Action("SetLanguage", "Home", new { lang = "ru" })">Русский</a>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
