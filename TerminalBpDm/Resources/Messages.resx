@@ -117,8 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Welcome" xml:space="preserve">
-    <value>Welcome</value>
+  <data name="DM" xml:space="preserve">
+    <value>HOUSE OF MINISTRIES</value>
+  </data>
+  <data name="Part1" xml:space="preserve">
+    <value>I hereby give my consent for the safety of a one-time pass, as well as its return to the card collector installed at the exit.</value>
+  </data>
+  <data name="Part2" xml:space="preserve">
+    <value>In case of loss or damage to the pass, I undertake to restore (provide an pass of the same type and quality).</value>
+  </data>
+  <data name="Part3" xml:space="preserve">
+    <value>According to the Art. 917 of the Civil Code of the Republic of Kazakhstan, the injury (property and (or) non-property damage), caused by illegal actions (inaction) to the property or non-property benefits and rights of citizens and legal entities shall be subject to full redress by the person who inflicted the injury. According to the Art. 934 of the Civil Code of the Republic of Kazakhstan, the person responsible for the infliction of injury to compensate for the losses incurred in full or redress injury in kind (to present a thing of the same sort and quality, to repair a damaged thing, etc.).</value>
+  </data>
+  <data name="Part4" xml:space="preserve">
+    <value>In case of loss of the pass, you must contact by phone 4-50-00.</value>
+  </data>
+  <data name="Part5" xml:space="preserve">
+    <value>Put vour ID document on alass in coresponding frame and press "START"</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>PASS ISSUING TERMINAL</value>
     <comment>Welcome</comment>
   </data>
 </root>

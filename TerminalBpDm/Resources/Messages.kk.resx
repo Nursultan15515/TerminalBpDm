@@ -117,8 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Welcome" xml:space="preserve">
-    <value>Қош келдіңіз</value>
-    <comment>Қош келдіңіз</comment>
+  <data name="DM" xml:space="preserve">
+    <value>МИНИСТРЛІКТЕР ҮЙІ</value>
+  </data>
+  <data name="Part1" xml:space="preserve">
+    <value>Мен осыымен бір реттік рұқсаттаманың қауіпсіздігіне, сондай-ақ оны шығуда орнатылған картқабылдағышқа қайтаруға келісімімді беремін.</value>
+  </data>
+  <data name="Part2" xml:space="preserve">
+    <value>Рұқсаттаманың жоғалған немесе бүлінген жағдайда, мен қалпына келтіруге міндеттенемін (сол түрдегі және сападағы рұқсаттаманы қамтамасыз етемін).</value>
+  </data>
+  <data name="Part3" xml:space="preserve">
+    <value>Қазақстан Республикасының азаматтық кодексінің 917 бабына сәйкес, азаматтар мен заңды тұлғалардың мүліктік немесе мүліктік емес игіліктері мен құқықтарына заңсыз іс-әрекеттермен (әрекетсіздікпен) келтірілген (мүліктік және (немесе) мүліктік емес) зиянды, оны келтірген тұлға толық көлемінде өтеуге тиіс. Қазақстан Республикасының азаматтық кодексінің 934 бабына сәйкес, жауапты адамды келтірген зиянды толық өтеуге немесе оны заттай өтеуге (тегі мен сапасы нақ сондай зат беру, бүлінген затты жөндеуге және т.б.) міндеттейді.</value>
+  </data>
+  <data name="Part4" xml:space="preserve">
+    <value>Рұқсаттаманы жоғалтқан жағдайда көрсетілген тел. арқылы хабарласу керек 4-50-00</value>
+  </data>
+  <data name="Part5" xml:space="preserve">
+    <value>Рұқсаттама алу үшін терминал экранынан тілді таңдап, «БАСТАУ» батырмасын басыңыз.</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Бастау</value>
+  </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>РҰҚСАТТАМА БЕРУ ТЕРМИНАЛЫ</value>
   </data>
 </root>

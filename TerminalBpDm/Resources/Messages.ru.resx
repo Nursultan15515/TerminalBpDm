@@ -117,8 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Welcome" xml:space="preserve">
-    <value>Добро пожаловать</value>
+  <data name="DM" xml:space="preserve">
+    <value>ДОМ МИНИСТЕРСТВ</value>
+  </data>
+  <data name="Part1" xml:space="preserve">
+    <value>Настоящим, даю свое согласие за сохранность разового пропуска, а также его возврат в картоприемник, установленный при выходе.</value>
+  </data>
+  <data name="Part2" xml:space="preserve">
+    <value>В случае утери или порчи пропуска, обязуюсь восстановить (предоставить пропуск того же рода и качества).</value>
+  </data>
+  <data name="Part3" xml:space="preserve">
+    <value>Согласно ст.917 Гражданского Кодекса РК, вред, причиненный неправомерными действиями (бездействием) имущественным или неимущественным благам и правам граждан и юридических лиц, подлежит возмещению лицом, причинившим вред в полном объеме. Лицо, ответственное за вред, обязано полностью возместить причиненные убытки или возместить его в натуре (предоставить вещь того же рода и качества, исправить поврежденную вещь и т.п.) согласно ст.934 Гражданского Кодекса РК.</value>
+  </data>
+  <data name="Part4" xml:space="preserve">
+    <value>В случае утери пропуска необходимо обратиться по тел. 4-50-00</value>
+  </data>
+  <data name="Part5" xml:space="preserve">
+    <value>Для получения пропуска выберите язык и нажмите кнопку "НАЧАТЬ"</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Начать</value>
+  </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>ТЕРМИНАЛ БЮРО ПРОПУСКОВ</value>
     <comment>Добро пожаловать</comment>
   </data>
 </root>

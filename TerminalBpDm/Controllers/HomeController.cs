@@ -11,6 +11,7 @@ namespace TerminalBpDm.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -55,6 +56,13 @@ namespace TerminalBpDm.Controllers
 
             return View();
         }
+
+        public ActionResult SearchPassCardPage()
+        {
+            return View();
+        }
+
+
 
         public ActionResult SetLanguage(string lang)
         {
