@@ -1,40 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Search pass card";
-    Layout = null;
+    ViewBag.Title = "Поиск пропуска";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Ручной ввод</title>
-    <link href="~/Content/SearchPage.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="container">
+<link href="~/Content/keyboard.css" rel="stylesheet" />
 
-        <div style="margin-bottom: 15px; font-size: 26px;">
-            Введите ИИН или номер паспорта
-        </div>
+<div style="margin-bottom: 15px; font-size: 26px;">
+    Введите ИИН или номер паспорта
+</div>
 
-        <form method="post" action="/Home/Search">
-            <div id="inputWrapper">
-                <input type="text" id="inputField" name="searchValue" readonly />
-                <button id="backspaceButton" onclick="handleBackspace()">⬅</button>
-            </div>
-
-            <div class="keyboard-wrapper" id="keyboardContainer"></div>
-
-            <div class="action-buttons">
-                <button type="submit">🔍 Поиск</button>
-            </div>
-        </form>
-        
+<form method="post" action="/Home/Search">
+    <div id="inputWrapper">
+        <input type="text" id="inputField" name="searchValue" required />
+        <button id="backspaceButton" onclick="handleBackspace()">⬅</button>
     </div>
 
-    <button class="back-button" onclick="window.location.href='@Url.Action("Index", "Home")'">⬅ Назад</button>
-    <div class="clock" id="clock"></div>
+    <div class="keyboard-wrapper" id="keyboardContainer"></div>
 
+    <div class="action-buttons">
+        <button type="submit">🔍 Поиск</button>
+    </div>
+</form>
+
+<button class="back-button" onclick="window.location.href='@Url.Action("Index", "Home")'">⬅ Назад</button>
+
+@section scripts {
     <script>
         let isLetters = false;
         const inputField = document.getElementById("inputField");
@@ -96,17 +85,5 @@
         }
 
         renderKeyboard();
-
-        // Часы
-        function updateClock() {
-            const now = new Date();
-            const date = now.toLocaleDateString('ru-RU');
-            const time = now.toLocaleTimeString('ru-RU', { hour12: false });
-            document.getElementById('clock').innerText = `${date} ${time}`;
-        }
-
-        setInterval(updateClock, 1000);
-        updateClock();
     </script>
-</body>
-</html>
+}

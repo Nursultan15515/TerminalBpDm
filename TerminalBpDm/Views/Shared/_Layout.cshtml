@@ -1,47 +1,74 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="@System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(to bottom, #003366, #004080);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .clock {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #0059b3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+
+    @RenderSection("styles", required: false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+    <div class="container">
         @RenderBody()
-        <hr />
-        <footer>
-            <a href="@Url.Action("SetLanguage", "Home", new { lang = "en" })">English</a>
-            |
-            <a href="@Url.Action("SetLanguage", "Home", new { lang = "ru" })">Русский</a>
-            |
-            <a href="@Url.Action("SetLanguage", "Home", new { lang = "kk" })">Қазақша</a>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <div class="clock" id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const date = now.toLocaleDateString('ru-RU');
+            const time = now.toLocaleTimeString('ru-RU', { hour12: false });
+            document.getElementById('clock').innerText = `${date} ${time}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
