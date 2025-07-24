@@ -7,60 +7,76 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Manual Input</title>
+    <title>Ручной ввод</title>
     <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(to bottom, #003366, #004080);
+            font-family: Arial, sans-serif;
+            color: white;
+            font-size: 22px;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         #inputWrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         #inputField {
-            font-size: 24px;
-            padding: 10px;
+            font-size: 30px;
+            padding: 16px;
             width: 700px;
             text-align: center;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
         }
 
         #backspaceButton {
-            margin-left: 10px;
-            padding: 10px 16px;
-            font-size: 20px;
-            background-color: #f44336;
+            margin-left: 15px;
+            padding: 16px 20px;
+            font-size: 26px;
+            background-color: #cc3333;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
         }
 
         .keyboard-wrapper {
-            width: 700px;
+            width: 800px;
             margin: 0 auto;
         }
 
         .keyboard-row {
             display: flex;
             justify-content: center;
-            margin: 5px 0;
+            margin: 8px 0;
         }
 
         .keyboard-button {
-            padding: 15px 20px;
+            padding: 20px 25px;
             margin: 5px;
-            font-size: 18px;
+            font-size: 22px;
             border-radius: 8px;
-            border: 1px solid #ccc;
-            background-color: #f0f0f0;
+            border: none;
+            background-color: #0066cc;
+            color: white;
             cursor: pointer;
-            min-width: 60px;
+            min-width: 70px;
             text-align: center;
         }
 
@@ -73,12 +89,47 @@
             }
 
             .keyboard-button.small-text {
-                font-size: 14px;
+                font-size: 16px;
             }
+
+        .action-buttons {
+            margin-top: 30px;
+        }
+
+            .action-buttons button {
+                padding: 16px 40px;
+                font-size: 22px;
+                border-radius: 10px;
+                border: none;
+                background-color: #00cc66;
+                color: white;
+                cursor: pointer;
+            }
+
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #0059b3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .clock {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
-    <div style="margin-top: 200px; text-align: center;">
+    <div class="container">
         <div id="inputWrapper">
             <input type="text" id="inputField" readonly />
             <button id="backspaceButton" onclick="handleBackspace()">⌫</button>
@@ -86,18 +137,13 @@
 
         <div class="keyboard-wrapper" id="keyboardContainer"></div>
 
-        <div style="margin-top: 20px;">
-            <button onclick="alert('Search pressed')" style="padding: 12px 30px; font-size: 18px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer;">
-                🔍 Search
-            </button>
-        </div>
-
-        <div style="position: absolute; bottom: 20px; left: 20px;">
-            <button onclick="window.location.href='@Url.Action("Index", "Home")'" style="padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer;">
-                ⬅ Back
-            </button>
+        <div class="action-buttons">
+            <button onclick="alert('Поиск выполнен')">🔍 Поиск</button>
         </div>
     </div>
+
+    <button class="back-button" onclick="window.location.href='@Url.Action("Index", "Home")'">⬅ Назад</button>
+    <div class="clock" id="clock"></div>
 
     <script>
         let isLetters = false;
@@ -159,7 +205,17 @@
         }
 
         renderKeyboard();
+
+        // Часы
+        function updateClock() {
+            const now = new Date();
+            const date = now.toLocaleDateString('ru-RU');
+            const time = now.toLocaleTimeString('ru-RU', { hour12: false });
+            document.getElementById('clock').innerText = `${date} ${time}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
 </html>
-
