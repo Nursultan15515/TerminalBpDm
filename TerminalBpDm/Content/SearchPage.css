@@ -1,0 +1,118 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, #003366, #004080);
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 22px;
+    overflow: hidden;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#inputField {
+    font-size: 30px;
+    padding: 16px;
+    width: 700px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+#backspaceButton {
+    margin-left: 15px;
+    padding: 16px 20px;
+    font-size: 26px;
+    background-color: #cc3333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.keyboard-wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.keyboard-button {
+    padding: 20px 25px;
+    margin: 5px;
+    font-size: 22px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0066cc;
+    color: white;
+    cursor: pointer;
+    min-width: 70px;
+    text-align: center;
+}
+
+    .keyboard-button.space {
+        min-width: 300px;
+    }
+
+    .keyboard-button.wide {
+        min-width: 130px;
+    }
+
+    .keyboard-button.small-text {
+        font-size: 16px;
+    }
+
+.action-buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .action-buttons button {
+        padding: 16px 40px;
+        font-size: 22px;
+        border-radius: 10px;
+        border: none;
+        background-color: #00cc66;
+        color: white;
+        cursor: pointer;
+    }
+
+.back-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #0059b3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.clock {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-size: 18px;
+    opacity: 0.8;
+}

@@ -72,5 +72,18 @@ namespace TerminalBpDm.Controllers
 
             return Redirect(Request.UrlReferrer.ToString());
         }
+
+        [HttpPost]
+        public ActionResult Search(string searchValue)
+        {
+            return RedirectToAction("PassCardNotFoundPage");
+        }
+
+        public ActionResult PassCardNotFoundPage()
+        {
+            return View();
+        }
+
+
     }
 }
