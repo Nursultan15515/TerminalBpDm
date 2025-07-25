@@ -52,17 +52,17 @@ namespace TerminalBpDm.Controllers
 
                 ServiceReference1.TerminalService1SoapClient client = new ServiceReference1.TerminalService1SoapClient();
 
-                var resp = new ResponseCard();
-                //var resp = client.GetVisitor(requestCard);
+                //var resp = new ResponseCard();
+                var resp = client.GetVisitor(requestCard);
 
                 //if (resp.Status == false)
                 //    return RedirectToAction("PassCardNotFoundPage");
 
-                resp.CabinetFloor = "1";
-                resp.InvitersFullname = "Ержан Нурсултан";
-                resp.InvitersPhoneNumber = "74-56-98";
-                resp.CabinetNumber = "103";
-                resp.VisitorFullname = "Ләйлім";
+                //resp.CabinetFloor = "1";
+                //resp.InvitersFullname = "Ержан Нурсултан";
+                //resp.InvitersPhoneNumber = "74-56-98";
+                //resp.CabinetNumber = "103";
+                //resp.VisitorFullname = "Ләйлім";
 
                 return View(resp);
 
