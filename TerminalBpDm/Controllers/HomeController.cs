@@ -11,58 +11,9 @@ namespace TerminalBpDm.Controllers
     {
         public ActionResult Index()
         {
-            
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            RequestCard requestCard = new RequestCard
-            {
-                RequestInfo = new RequestInfo
-                {
-                    MessageID = Guid.NewGuid().ToString(),
-                    Sender = new Sender
-                    {
-                        User = "Terminal4k1t",
-                        Password = "Ter2minaL",
-                    },
-                },
-                RequestData = new RequestCardData
-                {
-                    DocumentNumber = "930114350812"
-                },
-            };
-
-            ServiceReference1.TerminalService1SoapClient client = new ServiceReference1.TerminalService1SoapClient();
-
-            var resp = client.GetVisitor(requestCard);
-
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Ind()
-        {
-            ViewBag.Message = "Your Keyboard page.";
-
-            return View();
-        }
-
-        public ActionResult SearchPassCardPage()
-        {
-            return View();
-        }
-
-
 
         public ActionResult SetLanguage(string lang)
         {
@@ -73,10 +24,54 @@ namespace TerminalBpDm.Controllers
             return Redirect(Request.UrlReferrer.ToString());
         }
 
+        public ActionResult SearchPassCardPage()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Search(string searchValue)
         {
-            return RedirectToAction("PassCardNotFoundPage");
+            try
+            {
+                RequestCard requestCard = new RequestCard
+                {
+                    RequestInfo = new RequestInfo
+                    {
+                        MessageID = Guid.NewGuid().ToString(),
+                        Sender = new Sender
+                        {
+                            User = "Terminal4k1t",
+                            Password = "Ter2minaL",
+                        },
+                    },
+                    RequestData = new RequestCardData
+                    {
+                        DocumentNumber = searchValue
+                    },
+                };
+
+                ServiceReference1.TerminalService1SoapClient client = new ServiceReference1.TerminalService1SoapClient();
+
+                var resp = new ResponseCard();
+                //var resp = client.GetVisitor(requestCard);
+
+                //if (resp.Status == false)
+                //    return RedirectToAction("PassCardNotFoundPage");
+
+                resp.CabinetFloor = "1";
+                resp.InvitersFullname = "Ержан Нурсултан";
+                resp.InvitersPhoneNumber = "74-56-98";
+                resp.CabinetNumber = "103";
+                resp.VisitorFullname = "Ләйлім";
+
+                return View(resp);
+
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("ErrorPage");
+            }
+
         }
 
         public ActionResult PassCardNotFoundPage()
@@ -84,6 +79,9 @@ namespace TerminalBpDm.Controllers
             return View();
         }
 
-
+        public ActionResult ErrorPage()
+        {
+            return View();
+        }
     }
 }

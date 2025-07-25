@@ -245,6 +245,8 @@
     <Content Include="Views\Home\Ind.cshtml" />
     <Content Include="Views\Home\SearchPassCardPage.cshtml" />
     <Content Include="Views\Home\PassCardNotFoundPage.cshtml" />
+    <Content Include="Views\Home\ErrorPage.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
